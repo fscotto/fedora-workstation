@@ -11,6 +11,7 @@ export SCRIPT_DIR
 mkdir -p ~/.local/bin/
 
 # Needed for all installers
+echo -e "Upgrade Fedora installation\n"
 sudo dnf upgrade --assumeyes
 sudo dnf install --assumeyes curl git unzip
 

@@ -15,7 +15,3 @@ extensions=(
 for ext in "${extensions[@]}"; do
     gext install "$ext"
 done
-
-echo -e "Setting GNOME Extensions\n\n"
-
-# Clipboard history extension
