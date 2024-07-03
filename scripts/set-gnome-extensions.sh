@@ -31,7 +31,6 @@ echo -e "Configure GNOME Extensions\n"
 # Gnome 4x UI Improvements
 
 # Caffeine
-gsettings set org.gnome.shell.extensions.caffeine inhibit-apps ['org.videolan.VLC.desktop']
 
 # Bluetooth Quick Connect
 gsettings set org.gnome.shell.extensions.bluetooth-quick-connect show-battery-value-on true
