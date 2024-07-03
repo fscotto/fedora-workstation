@@ -20,6 +20,7 @@ sudo cp ~/.local/share/gnome-shell/extensions/bluetooth-quick-connect@bjarosze.g
 sudo cp ~/.local/share/gnome-shell/extensions/caffeine@patapon.info/schemas/org.gnome.shell.extensions.caffeine.gschema.xml /usr/share/glib-2.0/schemas/
 sudo cp ~/.local/share/gnome-shell/extensions/clipboard-history@alexsaveau.dev/schemas/org.gnome.shell.extensions.clipboard-indicator.gschema.xml /usr/share/glib-2.0/schemas/
 sudo cp ~/.local/share/gnome-shell/extensions/gnome-ui-tune@itstime.tech/schemas/org.gnome.shell.extensions.gnome-ui-tune.gschema.xml /usr/share/glib-2.0/schemas/
+sudo glib-compile-schemas /usr/share/glib-2.0/schemas/
 
 echo -e "Configure GNOME Extensions\n"
 
