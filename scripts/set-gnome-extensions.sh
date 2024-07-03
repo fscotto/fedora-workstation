@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-echo -e "Install GNOME Extension CLI tool\n"
+echo -e "\n\nInstall GNOME Extension CLI tool\n"
 pipx install gnome-extensions-cli --system-site-packages
 
 echo -e "Install GNOME Extensions\n"

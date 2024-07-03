@@ -24,5 +24,5 @@ declare -a PACKAGES=(
     "xclip"
 )
 
-echo -e "Install RPM packages\n"
+echo -e "\n\nInstall RPM packages\n"
 sudo dnf install --assumeyes "${PACKAGES[@]}"

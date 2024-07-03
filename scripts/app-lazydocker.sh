@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-echo -e "Install LazyDocker from GitHub\n"
+echo -e "\n\nInstall LazyDocker from GitHub\n"
 
 cd /tmp
 LAZYDOCKER_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazydocker/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')

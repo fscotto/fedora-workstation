@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-echo -e "Install libraries for C development\n"
+echo -e "\n\nInstall libraries for C development\n"
 sudo dnf groupinstall --assumeyes 'C Development Tools and Libraries'

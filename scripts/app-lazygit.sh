@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-echo -e "Install LazyGit from GitHub\n"
+echo -e "\n\nInstall LazyGit from GitHub\n"
 
 cd /tmp
 LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')

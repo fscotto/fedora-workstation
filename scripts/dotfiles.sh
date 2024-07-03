@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-echo -e "Copying dotfiles from my GitHub repo"
+echo -e "\n\nCopying dotfiles from my GitHub repo"
 
 git clone https://github.com/fscotto/dotfiles.git
 
