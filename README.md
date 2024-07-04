@@ -1,4 +1,6 @@
-# silverblue
-Configure and install software on my Fedora Silverblue installation
+# Fedora Workstation 40 Post-Installer
 
-DISCLAIMER: This project is in alpha phase. 
+Configure and install software on my Fedora Workstation 40 installation.
+This script collection configure GNOME exactly as I want it.
+
+DISCLAIMER: This project is in alpha phase.

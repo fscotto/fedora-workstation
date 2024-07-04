@@ -32,4 +32,4 @@ cd "$HOME"
 rm -rf "$SCRIPT_DIR"
 
 echo -e "Apply all setting reboot your computer"
-sudo systemctl reboot 
+sudo systemctl reboot
