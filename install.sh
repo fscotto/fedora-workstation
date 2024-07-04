@@ -29,3 +29,4 @@ gsettings set org.gnome.desktop.screensaver lock-enabled true
 gsettings set org.gnome.desktop.session idle-delay 300
 
 echo -e "Apply all setting reboot your computer"
+#sudo systemctl reboot 
