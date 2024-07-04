@@ -11,24 +11,24 @@ echo -e "Install VSCodium Extensions\n"
 
 set +e
 
-codium --install-extension piousdeer.adwaita-theme &>/dev/null
-codium --install-extension redhat.ansible &>/dev/null
-codium --install-extension formulahendry.auto-close-tag &>/dev/null
-codium --install-extension bungcip.better-toml &>/dev/null
-codium --install-extension franneck94.vscode-rust-extension-pack &>/dev/null
-codium --install-extension mikestead.dotenv &>/dev/null
-codium --install-extension elixir-lsp.elixir-ls &>/dev/null
-codium --install-extension golang.go &>/dev/null
-codium --install-extension rusnasonov.vscode-hugo &>/dev/null
-codium --install-extension budparr.language-hugo-vscode &>/dev/null
-codium --install-extension DavidAnson.vscode-markdownlint &>/dev/null
-codium --install-extension christian-kohler.path-intellisense &>/dev/null
-codium --install-extension esbenp.prettier-vscode &>/dev/null
-codium --install-extension ms-python.python &>/dev/null
-codium --install-extension ms-python.debugpy &>/dev/null
-codium --install-extension timonwong.shellcheck &>/dev/null
-codium --install-extension redhat.vscode-xml &>/dev/null
-codium --install-extension redhat.vscode-yaml &>/dev/null
+codium --install-extension piousdeer.adwaita-theme 2>/dev/null
+codium --install-extension redhat.ansible 2>/dev/null
+codium --install-extension formulahendry.auto-close-tag 2>/dev/null
+codium --install-extension bungcip.better-toml 2>/dev/null
+codium --install-extension franneck94.vscode-rust-extension-pack 2>/dev/null
+codium --install-extension mikestead.dotenv 2>/dev/null
+codium --install-extension elixir-lsp.elixir-ls 2>/dev/null
+codium --install-extension golang.go 2>/dev/null
+codium --install-extension rusnasonov.vscode-hugo 2>/dev/null
+codium --install-extension budparr.language-hugo-vscode 2>/dev/null
+codium --install-extension DavidAnson.vscode-markdownlint 2>/dev/null
+codium --install-extension christian-kohler.path-intellisense 2>/dev/null
+codium --install-extension esbenp.prettier-vscode 2>/dev/null
+codium --install-extension ms-python.python 2>/dev/null
+codium --install-extension ms-python.debugpy 2>/dev/null
+codium --install-extension timonwong.shellcheck 2>/dev/null
+codium --install-extension redhat.vscode-xml 2>/dev/null
+codium --install-extension redhat.vscode-yaml 2>/dev/null
 
 cat << EOF > ~/.config/VSCodium/User/settings.json
 {
