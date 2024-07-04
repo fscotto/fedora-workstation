@@ -2,5 +2,6 @@
 
 sudo dnf install --assumeyes rustup
 
-rustup toolchain add stable
+rustup-init
+
 rustup toolchain add nightly
