@@ -19,7 +19,6 @@ declare -a PACKAGES=(
     "qemu"
     "ranger"
     "rsync"
-    "rustup"
     "sushi"
     "xclip"
 )
