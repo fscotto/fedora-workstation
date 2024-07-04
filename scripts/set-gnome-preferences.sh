@@ -4,7 +4,6 @@ echo -e "Setting my GNOME Preferences\n"
 
 # Creating folders in app menu
 gsettings set org.gnome.desktop.app-folders folder-children "['Utilities', 'YaST', 'Pardus', 'ebe9c514-6000-498c-b613-cdc4b223d5e2', '02123af2-796e-4d92-90cb-58ec32548cde', 'ffdae5ed-cad3-4f54-8493-483f62ce7c84']"
-gsettings set org.gnome.desktop.app-folders folders "['/org/gnome/desktop/app-folders/folders/02123af2-796e-4d92-90cb-58ec32548cde/', '/org/gnome/desktop/app-folders/folders/ebe9c514-6000-498c-b613-cdc4b223d5e2/']"
 
 # Set folder "Administration Tools" (aka 02123af2-796e-4d92-90cb-58ec32548cde)
 gsettings set org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/02123af2-796e-4d92-90cb-58ec32548cde/ apps "['org.gnome.Software.desktop', 'io.github.prateekmedia.appimagepool.desktop', 'org.gnome.Settings.desktop', 'com.mattjakeman.ExtensionManager.desktop', 'org.gnome.tweaks.desktop', 'ca.desrt.dconf-editor.desktop', 'com.github.tchx84.Flatseal.desktop', 'io.github.flattool.Warehouse.desktop', 'org.gnome.DiskUtility.desktop', 'org.gnome.Logs.desktop', 'io.github.pwr_solaar.solaar.desktop', 'org.gnome.SystemMonitor.desktop', 'io.missioncenter.MissionCenter.desktop', 'com.github.GradienceTeam.Gradience.desktop', 'org.fedoraproject.FirewallConfig.desktop']"
