@@ -3,7 +3,7 @@
 echo -e "\n\nCopying dotfiles from my GitHub repo"
 
 cd /tmp
-git clone https://github.com/fscotto/dotfiles.git
+git clone --recurse-submodules https://github.com/fscotto/dotfiles.git
 
 configs=("bat" "fastfetch" "fish" "nvim" "ranger" "starship.toml")
 for f in "${configs[@]}"; do 
