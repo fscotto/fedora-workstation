@@ -2,6 +2,15 @@
 
 # Instruction from https://fedoramagazine.org/use-systemd-cryptenroll-with-fido-u2f-or-tpm2-to-decrypt-your-disk/
 
+function skip
+{
+    echo "TPM missing\n"
+    exit 0
+}
+
+[ -d "$(ls -d /sys/kernel/security/tpm* 2>/dev/null | head -1)" ] && \
+    echo "TPM available\n" || skip
+
 # FIXME: select LUKS2 device in automatic way
 luks2_device="/dev/nvme0n1p3"
 
