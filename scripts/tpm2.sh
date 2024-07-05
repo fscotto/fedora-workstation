@@ -17,7 +17,7 @@ function configure_tpm_module
     sudo cp /etc/crypttab /etc/crypttab.bak
     sudo sed -e 's/$/ tpm2-device=auto,tpm2-pcrs=0+1+2+3+4+5+7+9/' -i /etc/crypttab
 
-    sudo dracut -f
+    sudo dracut --force --verbose
 }
 
 if [ -d "$(ls -d /sys/kernel/security/tpm* 2>/dev/null | head -1)" ]; then
