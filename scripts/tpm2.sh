@@ -4,12 +4,21 @@
 
 function skip
 {
-    echo "TPM missing\n"
+    echo -e "TPM missing\n"
     exit 0
 }
 
 [ -d "$(ls -d /sys/kernel/security/tpm* 2>/dev/null | head -1)" ] && \
-    echo "TPM available\n" || skip
+    echo -e "TPM available\n" || skip
+
+while true; do
+    read -r -p "Do you want configure TPM chip? (Y/N): " answer
+    case $answer in
+        [Yy]* ) break;;
+        [Nn]* ) exit 0;;
+        * ) echo "Please answer Y or N.";;
+    esac
+done
 
 # FIXME: select LUKS2 device in automatic way
 luks2_device="/dev/nvme0n1p3"
