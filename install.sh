@@ -31,5 +31,11 @@ gsettings set org.gnome.desktop.session idle-delay 300
 cd "$HOME"
 rm -rf "$SCRIPT_DIR"
 
-echo -e "Apply all setting reboot your computer"
-sudo systemctl reboot
+while true; do
+    read -r -p "Do you wish to reboot the system? (Y/N): " answer
+    case $answer in
+        [Yy]* ) reboot; break;;
+        [Nn]* ) exit;;
+        * ) echo "Please answer Y or N.";;
+    esac
+done
