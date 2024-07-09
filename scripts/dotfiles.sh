@@ -1,19 +1,24 @@
 #!/usr/bin/env bash
 
-echo -e "\n\nCopying dotfiles from my GitHub repo"
+DOTFILES_LOC="$HOME"/.dotfiles
 
-cd /tmp
-git clone --recurse-submodules https://github.com/fscotto/dotfiles.git
+echo -e "\n\nInstall GNU Stow for handle dotfiles\n"
+sudo dnf install --assumeyes stow
 
-configs=("bat" "fastfetch" "fish" "nvim" "ranger" "starship.toml")
-for f in "${configs[@]}"; do 
-    rsync -avxHAWX --delete --fsync "/tmp/dotfiles/$f" "$HOME/.config"    
+echo -e "Copying dotfiles from my GitHub repo\n"
+git clone --recursive https://github.com/fscotto/dotfiles.git "$DOTFILES_LOC"
+
+packages=(
+    "bat" 
+    "fastfetch" 
+    "fish" 
+    "git"
+    "nvim" 
+    "ranger"
+    "starship"
+    "tmux"
+    "zellij"
+)
+for pkg in "${packages[@]}"; do 
+    stow -d "$DOTFILES_LOC" "$pkg"   
 done
-
-dotfiles=(".gitignore_global" ".gitconfig")
-for f in "${dotfiles[@]}"; do
-    rsync -avxHAWX --delete --fsync "/tmp/dotfiles/$f" "$HOME" 
-done
-
-rm -rf "/tmp/dotfiles"
-cd -
