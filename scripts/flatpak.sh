@@ -19,12 +19,12 @@ declare -a flatpaks=(
     "org.mozilla.firefox"
     "org.onlyoffice.desktopeditors"
     "org.raspberrypi.rpi-imager"
-    "org.telegram.desktop"
     "org.videolan.VLC"
     "uk.org.greenend.chiark.sgtatham.putty"
     "org.gtk.Gtk3theme.adw-gtk3-dark"
     "org.gtk.Gtk3theme.Adwaita-dark"
     "org.freedesktop.Platform.VAAPI.Intel"
+    "io.github.dvlv.boxbuddyrs"
 )
 
 echo -e "Install Flatpak packages\n"
@@ -52,3 +52,4 @@ flatpak override --user --env=GTK_THEME=adw-gtk3-dark org.mozilla.firefox
 flatpak override --user --env=GTK_THEME=adw-gtk3-dark uk.org.greenend.chiark.sgtatham.putty
 flatpak override --user --filesystem=xdg-music com.github.KRTirtho.Spotube
 flatpak override --user --env=MOZ_ENABLE_WAYLAND=1 org.mozilla.Thunderbird
+flatpak override --user --filesystem=home io.github.dvlv.boxbuddyrs

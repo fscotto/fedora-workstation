@@ -3,6 +3,7 @@
 declare -a PACKAGES=(
     "btop"
     "dconf-editor"
+    "distrobox"
     "elixir"
     "erlang"
     "filezilla"
@@ -20,6 +21,8 @@ declare -a PACKAGES=(
     "ranger"
     "rsync"
     "sushi"
+    "telegram-desktop"
+    "tmux"
     "xclip"
 )
 

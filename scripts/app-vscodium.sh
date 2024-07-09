@@ -29,6 +29,7 @@ codium --install-extension ms-python.debugpy 2>/dev/null
 codium --install-extension timonwong.shellcheck 2>/dev/null
 codium --install-extension redhat.vscode-xml 2>/dev/null
 codium --install-extension redhat.vscode-yaml 2>/dev/null
+codium --install-extension pkief.material-icon-theme 2>/dev/null
 
 cat << EOF > ~/.config/VSCodium/User/settings.json
 {
