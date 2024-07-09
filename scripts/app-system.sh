@@ -3,9 +3,9 @@
 declare -a PACKAGES=(
     "btop"
     "dconf-editor"
-    "distrobox"
     "elixir"
     "erlang"
+    "exercism"
     "filezilla"
     "firewall-config"
     "htop"
