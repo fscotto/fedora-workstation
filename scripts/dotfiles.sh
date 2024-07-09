@@ -20,5 +20,5 @@ packages=(
     "zellij"
 )
 for pkg in "${packages[@]}"; do 
-    stow -d "$DOTFILES_LOC" "$pkg"   
+    stow --dotfiles --dir "$DOTFILES_LOC" "$pkg"
 done
