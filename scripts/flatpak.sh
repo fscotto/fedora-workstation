@@ -7,7 +7,7 @@ echo -e "Remove unecessary RPM applications\n"
 sudo dnf remove --assumeyes firefox-langpacks firefox gnome-connections rhythmbox totem
 
 declare -a flatpaks=(
-    "com.github.KRTirtho.Spotube"
+    "com.spotify.Client"
     "com.github.tchx84.Flatseal"
     "com.mattjakeman.ExtensionManager"
     "io.dbeaver.DBeaverCommunity"
@@ -49,5 +49,4 @@ flatpak override --user --env=GTK_THEME=adw-gtk3-dark nl.hjdskes.gcolor3
 flatpak override --user --env=GTK_THEME=adw-gtk3-dark io.dbeaver.DBeaverCommunity
 flatpak override --user --env=GTK_THEME=adw-gtk3-dark org.mozilla.firefox
 flatpak override --user --env=GTK_THEME=adw-gtk3-dark uk.org.greenend.chiark.sgtatham.putty
-flatpak override --user --filesystem=xdg-music com.github.KRTirtho.Spotube
 flatpak override --user --env=MOZ_ENABLE_WAYLAND=1 org.mozilla.Thunderbird

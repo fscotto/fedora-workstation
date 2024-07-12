@@ -12,6 +12,7 @@ declare -a PACKAGES=(
     "httpie"
     "hugo"
     "hwinfo"
+    "inotify-tools"
     "jq"
     "neovim"
     "meld"
