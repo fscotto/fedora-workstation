@@ -9,6 +9,7 @@ echo -e "Copying dotfiles from my GitHub repo\n"
 git clone --recursive https://github.com/fscotto/dotfiles.git "$DOTFILES_LOC"
 
 packages=(
+    "alacritty"
     "bat" 
     "fastfetch" 
     "fish" 
@@ -17,7 +18,6 @@ packages=(
     "ranger"
     "starship"
     "tmux"
-    "zellij"
 )
 for pkg in "${packages[@]}"; do 
     stow --dotfiles --dir "$DOTFILES_LOC" "$pkg"

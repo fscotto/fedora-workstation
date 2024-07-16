@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 declare -a PACKAGES=(
+    "alacritty"
     "btop"
     "dconf-editor"
     "elixir"
@@ -26,6 +27,9 @@ declare -a PACKAGES=(
     "tmux"
     "xclip"
 )
+
+echo -e "Remove unused RPM apps\n"
+sudo dnf remove --assumeyes gnome-connections rhythmbox totem gnome-terminal
 
 echo -e "\n\nInstall RPM packages\n"
 sudo dnf install --assumeyes "${PACKAGES[@]}"
