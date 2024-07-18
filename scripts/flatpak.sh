@@ -24,6 +24,7 @@ declare -a flatpaks=(
     "org.gtk.Gtk3theme.adw-gtk3-dark"
     "org.gtk.Gtk3theme.Adwaita-dark"
     "org.freedesktop.Platform.VAAPI.Intel"
+    "com.github.xournalpp.xournalpp"
 )
 
 echo -e "Install Flatpak packages\n"

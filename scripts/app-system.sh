@@ -15,6 +15,7 @@ declare -a PACKAGES=(
     "hwinfo"
     "inotify-tools"
     "jq"
+    "luarocks"
     "neovim"
     "meld"
     "pipx"
