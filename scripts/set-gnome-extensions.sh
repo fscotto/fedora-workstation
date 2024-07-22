@@ -24,6 +24,9 @@ sudo glib-compile-schemas /usr/share/glib-2.0/schemas/
 
 echo -e "Configure GNOME Extensions\n"
 
+# Background log
+gsettings set org.fedorahosted.background-logo-extension logo-always-visible true
+
 # Caffeine
 gsettings set org.gnome.shell.extensions.caffeine inhibit-apps "['org.videolan.VLC.desktop']"
 

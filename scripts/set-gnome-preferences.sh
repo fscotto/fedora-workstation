@@ -75,6 +75,12 @@ gsettings set org.gnome.nautilus.list-view default-visible-columns "['name', 'si
 gsettings set org.gnome.nautilus.list-view default-zoom-level 'large'
 gsettings set org.gtk.Settings.FileChooser sort-directories-first true
 
+# Background conf
+cp "$SCRIPT_DIR"/data/background.jpg "$HOME"/.config/background
+gsettings set org.gnome.desktop.background picture-uri 'file:///home/fscotto/.config/background'
+gsettings set org.gnome.desktop.background picture-uri-dark 'file:///home/fscotto/.config/background'
+gsettings set org.gnome.desktop.background picture-options 'zoom'
+
 # GNOME Terminal conf
 #gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/ background-color 'rgb(23,20,33)'
 #gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/ background-transparency-percent 3
