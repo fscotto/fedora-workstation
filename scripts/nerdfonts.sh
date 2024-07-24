@@ -1,9 +1,6 @@
 #!/usr/bin/env bash
 
 echo -e "\n\nInstall Nerd Fonts\n"
-#git clone https://github.com/ryanoasis/nerd-fonts.git
-#eval "$SCRIPT_DIR/nerd-fonts/install.sh"
-
 mkdir -p ~/.local/share/fonts
 
 cd /tmp || exit
@@ -18,5 +15,11 @@ unzip JetBrainsMono.zip -d JetBrainsMono
 cp JetBrainsMono/*.ttf ~/.local/share/fonts
 rm -rf JetBrainsMono.zip JetBrainsMono
 
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/FiraCode.zip
+unzip FiraCode.zip -d FiraCode
+cp FiraCode/*.ttf ~/.local/share/fonts
+rm -rf FiraCode.zip FiraCode
+
 fc-cache -f -v
 cd - || exit
+
