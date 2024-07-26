@@ -102,5 +102,23 @@ gsettings set org.gnome.desktop.background picture-options 'zoom'
 #gsettings set org.gnome.Terminal.ProfilesList default 'b1dcc9dd-5262-4d8d-a863-c897e6d979b9'
 #gsettings set org.gnome.Terminal.ProfilesList list "['b1dcc9dd-5262-4d8d-a863-c897e6d979b9']"
 
+# Configuration Nautilus extensions
 unzip "$SCRIPT_DIR"/data/templates.zip -d "$HOME"/Templates
+mkdir -p "$HOME"/.local/share/nautilus-python/extensions
 
+# Copy path extension
+cd /tmp || return
+git clone https://github.com/ronen25/nautilus-copypath
+cp /tmp/nautilus-copypath/nautilus-copypath.py ~/.local/share/nautilus-python/extensions/
+
+# Open any terminal extension
+git clone https://github.com/Stunkymonkey/nautilus-open-any-terminal.git
+cd /tmp/nautilus-open-any-terminal || exit
+make
+sudo make install-nautilus schema
+glib-compile-schemas /usr/share/glib-2.0/schemas
+
+gsettings set com.github.stunkymonkey.nautilus-open-any-terminal terminal kitty
+gsettings set com.github.stunkymonkey.nautilus-open-any-terminal new-tab true
+
+cd "$SCRIPT_DIR" || exit
