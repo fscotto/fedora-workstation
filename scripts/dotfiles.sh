@@ -10,13 +10,19 @@ git clone --recursive https://github.com/fscotto/dotfiles.git "$DOTFILES_LOC"
 
 packages=(
   "bat"
+  "btop"
+  "dunst"
   "fastfetch"
   "fish"
+  "hyprland"
   "git"
   "kitty"
   "nvim"
+  "nwg-panel"
+  "rofi"
   "starship"
   "tmux"
+  "waybar"
   "yazi"
 )
 for pkg in "${packages[@]}"; do

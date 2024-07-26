@@ -9,6 +9,7 @@ declare -a PACKAGES=(
   "ffmpegthumbnailer"
   "filezilla"
   "firewall-config"
+  "git-delta"
   "htop"
   "httpie"
   "hugo"
@@ -43,6 +44,9 @@ sudo dnf remove --assumeyes gnome-connections rhythmbox totem gnome-terminal
 
 echo -e "\n\nInstall RPM packages\n"
 sudo dnf install --assumeyes "${PACKAGES[@]}"
+
+sudo dnf copr enable --assumeyes awood/bat-extras
+sudo dnf install --assumeyes bat-extras
 
 # Set kitty as default system terminal emulator
 sudo ln -s /usr/bin/kitty /usr/local/bin/gnome-terminal
