@@ -24,6 +24,7 @@ declare -a PACKAGES=(
   "neovim"
   "meld"
   "miller"
+  "ov"
   "pipx"
   "python-request"
   "python3-gobject"
