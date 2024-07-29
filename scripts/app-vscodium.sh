@@ -11,7 +11,6 @@ echo -e "Install VSCodium Extensions\n"
 
 set +e
 
-codium --install-extension piousdeer.adwaita-theme 2>/dev/null
 codium --install-extension redhat.ansible 2>/dev/null
 codium --install-extension formulahendry.auto-close-tag 2>/dev/null
 codium --install-extension bungcip.better-toml 2>/dev/null
@@ -29,25 +28,25 @@ codium --install-extension ms-python.debugpy 2>/dev/null
 codium --install-extension timonwong.shellcheck 2>/dev/null
 codium --install-extension redhat.vscode-xml 2>/dev/null
 codium --install-extension redhat.vscode-yaml 2>/dev/null
-codium --install-extension pkief.material-icon-theme 2>/dev/null
+codium --install-extension catppuccin.catppuccin-vsc-pack 2>/dev/null
 
 cat << EOF > ~/.config/VSCodium/User/settings.json
 {
     "workbench.startupEditor": "none",
-    "workbench.iconTheme": "material-icon-theme",
-    "workbench.colorTheme": "Adwaita Dark",
+    "workbench.iconTheme": "catppuccin-frappe",
+    "workbench.colorTheme": "Catppuccin Frappé",
     "window.titleBarStyle": "custom",
 
-    "editor.fontFamily": "'JetBrainsMono Nerd Font', 'FiraCode Nerd Font'",
-    "editor.fontSize": 18,
+    "editor.fontFamily": "'FiraCode Nerd Font'",
+    "editor.fontSize": 16,
     
     // Terminal configurations
-    "terminal.external.linuxExec": "gnome-terminal",
+    "terminal.external.linuxExec": "kitty",
     "terminal.integrated.gpuAcceleration": "on",
     "terminal.integrated.defaultProfile.linux": "fish",
     "terminal.integrated.cursorBlinking": true,
-    "terminal.integrated.fontFamily": "'RobotoMono Nerd Font'",
-    "terminal.integrated.fontSize": 18,
+    "terminal.integrated.fontFamily": "'FiraCode Nerd Font'",
+    "terminal.integrated.fontSize": 16,
 
     "redhat.telemetry.enabled": false,
     "elixirLS.enableTestLenses": true,
