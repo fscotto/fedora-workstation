@@ -10,6 +10,7 @@ declare -a PACKAGES=(
   "filezilla"
   "firewall-config"
   "git-delta"
+  "git-extras"
   "htop"
   "httpie"
   "hugo"
