@@ -11,6 +11,7 @@ declare -a PACKAGES=(
   "firewall-config"
   "git-delta"
   "git-extras"
+  "gnome-tweaks"
   "htop"
   "httpie"
   "hugo"
