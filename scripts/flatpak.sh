@@ -3,35 +3,38 @@
 echo -e "\n\nAdd Flathub repository\n"
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
-echo -e "Remove RPM Firefox version\n"
-sudo dnf remove --assumeyes firefox-langpacks firefox
+status=$(package_status "firefox")
+if [ "$status" -eq 0 ]; then
+  echo -e "Remove RPM Firefox version\n"
+  sudo dnf remove --assumeyes firefox-langpacks firefox
+fi
 
-declare -a flatpaks=(
-    "com.spotify.Client"
-    "com.github.tchx84.Flatseal"
-    "com.mattjakeman.ExtensionManager"
-    "io.dbeaver.DBeaverCommunity"
-    "io.github.flattool.Warehouse"
-    "io.podman_desktop.PodmanDesktop"
-    "me.iepure.devtoolbox"
-    "nl.hjdskes.gcolor3"
-    "org.mozilla.Thunderbird"
-    "org.mozilla.firefox"
-    "org.onlyoffice.desktopeditors"
-    "org.raspberrypi.rpi-imager"
-    "org.videolan.VLC"
-    "uk.org.greenend.chiark.sgtatham.putty"
-    "org.gtk.Gtk3theme.adw-gtk3-dark"
-    "org.gtk.Gtk3theme.Adwaita-dark"
-    "org.freedesktop.Platform.VAAPI.Intel"
-    "com.github.xournalpp.xournalpp"
+declare -A FLATPAKS=(
+  ["com.spotify.Client"]="flathub"
+  ["com.github.tchx84.Flatseal"]="flathub"
+  ["com.mattjakeman.ExtensionManager"]="flathub"
+  ["io.dbeaver.DBeaverCommunity"]="flathub"
+  ["io.github.flattool.Warehouse"]="flathub"
+  ["io.podman_desktop.PodmanDesktop"]="flathub"
+  ["me.iepure.devtoolbox"]="flathub"
+  ["nl.hjdskes.gcolor3"]="flathub"
+  ["org.mozilla.Thunderbird"]="flathub"
+  ["org.mozilla.firefox"]="flathub"
+  ["org.onlyoffice.desktopeditors"]="flathub"
+  ["org.raspberrypi.rpi-imager"]="flathub"
+  ["org.videolan.VLC"]="flathub"
+  ["uk.org.greenend.chiark.sgtatham.putty"]="flathub"
+  ["org.gtk.Gtk3theme.adw-gtk3-dark"]="flathub"
+  ["org.gtk.Gtk3theme.Adwaita-dark"]="flathub"
+  ["org.freedesktop.Platform.VAAPI.Intel/x86_64/23.08"]="flathub"
+  ["com.github.xournalpp.xournalpp"]="flathub"
 )
 
 echo -e "Install Flatpak packages\n"
-for pkg in "${flatpaks[@]}"; do
-    flatpak install --assumeyes flathub "$pkg"
+for pkg in "${!FLATPAKS[@]}"; do
+  remote="${FLATPAKS[${pkg}]}"
+  flatpak install --assumeyes "$remote" "$pkg"
 done
-
 echo -e "Flatpaks installed\n"
 
 echo -e "Override Flatpak user configurations\n"
@@ -51,3 +54,4 @@ flatpak override --user --env=GTK_THEME=adw-gtk3-dark io.dbeaver.DBeaverCommunit
 flatpak override --user --env=GTK_THEME=adw-gtk3-dark org.mozilla.firefox
 flatpak override --user --env=GTK_THEME=adw-gtk3-dark uk.org.greenend.chiark.sgtatham.putty
 flatpak override --user --env=MOZ_ENABLE_WAYLAND=1 org.mozilla.Thunderbird
+

@@ -2,7 +2,12 @@
 
 echo -e "Setting my GNOME Preferences\n"
 
-sudo dnf install --assumeyes papirus-icon-theme-dark
+status=$(package_status "papirus-icon-theme-dark")
+if [ "$status" -ne 0 ]; then
+  sudo dnf install --assumeyes papirus-icon-theme-dark
+else
+  echo -e "\nPapiru icons already installed\n"
+fi
 
 # Creating folders in app menu
 gsettings set org.gnome.desktop.app-folders folder-children "['Utilities', 'YaST', 'Pardus', 'ebe9c514-6000-498c-b613-cdc4b223d5e2', '02123af2-796e-4d92-90cb-58ec32548cde', 'ffdae5ed-cad3-4f54-8493-483f62ce7c84']"
@@ -102,8 +107,11 @@ gsettings set org.gnome.desktop.background picture-options 'zoom'
 #gsettings set org.gnome.Terminal.ProfilesList default 'b1dcc9dd-5262-4d8d-a863-c897e6d979b9'
 #gsettings set org.gnome.Terminal.ProfilesList list "['b1dcc9dd-5262-4d8d-a863-c897e6d979b9']"
 
-# Configuration Nautilus extensions
+# Install file templates
+mkdir -p "$HOME"/Templates
 unzip "$SCRIPT_DIR"/data/templates.zip -d "$HOME"/Templates
+
+# Configuration Nautilus extensions
 mkdir -p "$HOME"/.local/share/nautilus-python/extensions
 
 # Copy path extension
@@ -116,7 +124,7 @@ git clone https://github.com/Stunkymonkey/nautilus-open-any-terminal.git
 cd /tmp/nautilus-open-any-terminal || exit
 make
 sudo make install-nautilus schema
-glib-compile-schemas /usr/share/glib-2.0/schemas
+sudo glib-compile-schemas /usr/share/glib-2.0/schemas
 
 gsettings set com.github.stunkymonkey.nautilus-open-any-terminal terminal kitty
 gsettings set com.github.stunkymonkey.nautilus-open-any-terminal new-tab true
