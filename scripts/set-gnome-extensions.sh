@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+USER_EXT=~/.local/share/gnome-shell/extensions
+SYSTEM_EXT=/usr/share/glib-2.0/schemas/
+
 echo -e "\n\nInstall GNOME Extension CLI tool\n"
 pipx install gnome-extensions-cli --system-site-packages
 
@@ -14,15 +17,15 @@ extensions=(
   "no-overview@fthx"
 )
 for ext in "${extensions[@]}"; do
-  gext install "$ext"
+  gext install --filesystem "$ext"
 done
 
-sudo cp ~/.local/share/gnome-shell/extensions/bluetooth-quick-connect@bjarosze.gmail.com/schemas/org.gnome.shell.extensions.bluetooth-quick-connect.gschema.xml /usr/share/glib-2.0/schemas/
-sudo cp ~/.local/share/gnome-shell/extensions/caffeine@patapon.info/schemas/org.gnome.shell.extensions.caffeine.gschema.xml /usr/share/glib-2.0/schemas/
-sudo cp ~/.local/share/gnome-shell/extensions/clipboard-history@alexsaveau.dev/schemas/org.gnome.shell.extensions.clipboard-indicator.gschema.xml /usr/share/glib-2.0/schemas/
-sudo cp ~/.local/share/gnome-shell/extensions/gnome-ui-tune@itstime.tech/schemas/org.gnome.shell.extensions.gnome-ui-tune.gschema.xml /usr/share/glib-2.0/schemas/
-sudo cp ~/.local/share/gnome-shell/extensions/user-theme@gnome-shell-extensions.gcampax.github.com/schemas/org.gnome.shell.extensions.user-theme.gschema.xml /usr/share/glib-2.0/schemas/
-sudo glib-compile-schemas /usr/share/glib-2.0/schemas/
+sudo cp "${USER_EXT}"/bluetooth-quick-connect@bjarosze.gmail.com/schemas/org.gnome.shell.extensions.bluetooth-quick-connect.gschema.xml "${SYSTEM_EXT}"
+sudo cp "${USER_EXT}"/caffeine@patapon.info/schemas/org.gnome.shell.extensions.caffeine.gschema.xml "${SYSTEM_EXT}"
+sudo cp "${USER_EXT}"/clipboard-history@alexsaveau.dev/schemas/org.gnome.shell.extensions.clipboard-indicator.gschema.xml "${SYSTEM_EXT}"
+sudo cp "${USER_EXT}"/gnome-ui-tune@itstime.tech/schemas/org.gnome.shell.extensions.gnome-ui-tune.gschema.xml "${SYSTEM_EXT}"
+sudo cp "${USER_EXT}"/user-theme@gnome-shell-extensions.gcampax.github.com/schemas/org.gnome.shell.extensions.user-theme.gschema.xml "${SYSTEM_EXT}"
+sudo glib-compile-schemas "${SYSTEM_EXT}"
 
 echo -e "Configure GNOME Extensions\n"
 
