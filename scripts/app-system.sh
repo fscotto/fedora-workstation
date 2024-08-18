@@ -34,6 +34,7 @@ declare -a PACKAGES=(
   "qemu"
   "ripgrep"
   "rsync"
+  "seahorse"
   "sushi"
   "telegram-desktop"
   "tmux"
