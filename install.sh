@@ -32,3 +32,5 @@ gsettings set org.gnome.desktop.session idle-delay 300
 
 cd "$HOME"
 rm -rf "$SCRIPT_DIR"
+
+echo -e "Installation finish with successful, reboot your computer"
