@@ -15,7 +15,7 @@ mkdir -p ~/.local/bin/
 # Needed for all installers
 echo -e "Upgrade Fedora installation\n"
 sudo dnf upgrade --assumeyes --best --allowerasing
-sudo dnf install --assumeyes curl git unzip dnf-utils
+sudo dnf install --assumeyes curl git unzip dnf-utils pipx
 
 # Ensure computer doesn't go to sleep or lock while installing
 gsettings set org.gnome.desktop.screensaver lock-enabled false
