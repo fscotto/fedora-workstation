@@ -2,6 +2,7 @@
 
 echo -e "\n\nAdd Flathub repository\n"
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+flatpak remote-modify --enable flathub
 
 status=$(package_status "firefox")
 if [ "$status" -eq 0 ]; then
@@ -54,4 +55,3 @@ flatpak override --user --env=GTK_THEME=adw-gtk3-dark io.dbeaver.DBeaverCommunit
 flatpak override --user --env=GTK_THEME=adw-gtk3-dark org.mozilla.firefox
 flatpak override --user --env=GTK_THEME=adw-gtk3-dark uk.org.greenend.chiark.sgtatham.putty
 flatpak override --user --env=MOZ_ENABLE_WAYLAND=1 org.mozilla.Thunderbird
-
