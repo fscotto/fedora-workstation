@@ -116,17 +116,21 @@ mkdir -p "$HOME"/.local/share/nautilus-python/extensions
 
 # Copy path extension
 cd /tmp || return
-git clone https://github.com/ronen25/nautilus-copypath
-cp /tmp/nautilus-copypath/nautilus-copypath.py ~/.local/share/nautilus-python/extensions/
-rm -rf /tmp/nautilus-copypath
+if [ ! -d /tmp/nautilus-copypath ]; then
+  git clone https://github.com/ronen25/nautilus-copypath
+  cp /tmp/nautilus-copypath/nautilus-copypath.py ~/.local/share/nautilus-python/extensions/
+  rm -rf /tmp/nautilus-copypath
+fi
 
 # Open any terminal extension
-git clone https://github.com/Stunkymonkey/nautilus-open-any-terminal.git
-cd /tmp/nautilus-open-any-terminal || exit
-make
-sudo make install-nautilus schema
-sudo glib-compile-schemas /usr/share/glib-2.0/schemas
-rm -rf /tmp/nautilus-open-any-terminal
+if [ ! -d /tmp/nautilus-open-any-terminal ]; then
+  git clone https://github.com/Stunkymonkey/nautilus-open-any-terminal.git
+  cd /tmp/nautilus-open-any-terminal || exit
+  make
+  sudo make install-nautilus schema
+  sudo glib-compile-schemas /usr/share/glib-2.0/schemas
+  rm -rf /tmp/nautilus-open-any-terminal
+fi
 
 gsettings set com.github.stunkymonkey.nautilus-open-any-terminal terminal kitty
 gsettings set com.github.stunkymonkey.nautilus-open-any-terminal new-tab true
