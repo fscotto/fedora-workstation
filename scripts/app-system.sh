@@ -33,6 +33,7 @@ declare -a PACKAGES=(
   "ripgrep"
   "rsync"
   "seahorse"
+  "solaar"
   "sushi"
   "tmux"
   "unar"
