@@ -8,6 +8,7 @@ declare -a PACKAGES=(
   "exercism"
   "filezilla"
   "firewall-config"
+  "gh"
   "git-delta"
   "git-extras"
   "gnome-tweaks"
