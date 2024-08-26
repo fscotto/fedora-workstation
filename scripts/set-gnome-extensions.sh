@@ -16,6 +16,7 @@ extensions=(
   "user-theme@gnome-shell-extensions.gcampax.github.com"
   "no-overview@fthx"
   "status-area-horizontal-spacing@mathematical.coffee.gmail.com"
+  "appindicatorsupport@rgcjonas.gmail.com"
 )
 for ext in "${extensions[@]}"; do
   gext install "$ext"
