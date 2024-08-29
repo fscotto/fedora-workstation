@@ -2,6 +2,7 @@
 
 declare -a PACKAGES=(
   "btop"
+  "btrfs-assistant"
   "dconf-editor"
   "elixir"
   "erlang"
@@ -30,6 +31,7 @@ declare -a PACKAGES=(
   "pipx"
   "python3-gobject"
   "python3-virtualenv"
+  "qalculate-gtk"
   "qemu"
   "ripgrep"
   "rsync"

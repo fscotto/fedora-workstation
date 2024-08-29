@@ -29,6 +29,8 @@ declare -A FLATPAKS=(
   ["org.gtk.Gtk3theme.Adwaita-dark"]="flathub"
   ["org.freedesktop.Platform.VAAPI.Intel/x86_64/23.08"]="flathub"
   ["com.github.xournalpp.xournalpp"]="flathub"
+  ["com.usebruno.Bruno"]="flathub"
+  ["org.freefilesync.FreeFileSync"]="flathub"
 )
 
 echo -e "Install Flatpak packages\n"
