@@ -31,6 +31,7 @@ if [ "$status" -ne 0 ]; then
   codium --install-extension redhat.vscode-xml 2>/dev/null
   codium --install-extension redhat.vscode-yaml 2>/dev/null
   codium --install-extension catppuccin.catppuccin-vsc-pack 2>/dev/null
+  codium --install-extension vscodevim.vim 2>/dev/null
 
   cat <<EOF >~/.config/VSCodium/User/settings.json
 {
@@ -60,4 +61,3 @@ EOF
 else
   echo -e "\nVSCodium already installed\n"
 fi
-
