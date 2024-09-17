@@ -16,7 +16,6 @@ declare -A FLATPAKS=(
   ["com.mattjakeman.ExtensionManager"]="flathub"
   ["io.dbeaver.DBeaverCommunity"]="flathub"
   ["io.github.flattool.Warehouse"]="flathub"
-  ["io.podman_desktop.PodmanDesktop"]="flathub"
   ["me.iepure.devtoolbox"]="flathub"
   ["nl.hjdskes.gcolor3"]="flathub"
   ["org.mozilla.Thunderbird"]="flathub"
@@ -57,3 +56,5 @@ flatpak override --user --env=GTK_THEME=adw-gtk3-dark io.dbeaver.DBeaverCommunit
 flatpak override --user --env=GTK_THEME=adw-gtk3-dark org.mozilla.firefox
 flatpak override --user --env=GTK_THEME=adw-gtk3-dark uk.org.greenend.chiark.sgtatham.putty
 flatpak override --user --env=MOZ_ENABLE_WAYLAND=1 org.mozilla.Thunderbird
+flatpak override --user --env=GTK_THEME=Adwaita-dark org.freefilesync.FreeFileSync
+flatpak override --user --env=GTK_THEME=adw-gtk3-dark com.github.xournalpp.xournalpp
