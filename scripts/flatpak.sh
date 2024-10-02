@@ -30,6 +30,14 @@ declare -A FLATPAKS=(
   ["com.github.xournalpp.xournalpp"]="flathub"
   ["com.usebruno.Bruno"]="flathub"
   ["org.freefilesync.FreeFileSync"]="flathub"
+  ["ca.desrt.dconf-editor"]="flathub"
+  ["io.github.Qalculate"]="flathub"
+  ["io.github.troyeguo.koodo-reader"]="flathub"
+  ["org.filezillaproject.Filezilla"]="flathub"
+  ["org.fedoraproject.FirewallConfig"]="fedora"
+  ["org.gnome.seahorse.Application"]="flathub"
+  ["org.telegram.desktop"]="flathub"
+  ["io.github.pwr_solaar.solaar"]="flathub"
 )
 
 echo -e "Install Flatpak packages\n"
@@ -58,3 +66,6 @@ flatpak override --user --env=GTK_THEME=adw-gtk3-dark uk.org.greenend.chiark.sgt
 flatpak override --user --env=MOZ_ENABLE_WAYLAND=1 org.mozilla.Thunderbird
 flatpak override --user --env=GTK_THEME=Adwaita-dark org.freefilesync.FreeFileSync
 flatpak override --user --env=GTK_THEME=adw-gtk3-dark com.github.xournalpp.xournalpp
+flatpak override --user --env=GTK_THEME=Adwaita-dark org.fedoraproject.FirewallConfig
+flatpak override --user --env=GTK_THEME=Adwaita-dark io.github.Qalculate
+flatpak override --user --env=GTK_THEME=adw-gtk3-dark io.github.pwr_solaar.solaar
