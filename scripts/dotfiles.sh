@@ -21,7 +21,6 @@ fi
 packages=(
   "bat"
   "btop"
-  "dunst"
   "fastfetch"
   "fish"
   "git"
@@ -29,13 +28,11 @@ packages=(
   "kitty"
   "lazydocker"
   "lazygit"
+  "mise"
   "nvim"
   "ov"
-  "rofi"
-  "sway"
   "starship"
   "tmux"
-  "waybar"
   "yazi"
 )
 for pkg in "${packages[@]}"; do
