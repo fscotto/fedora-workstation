@@ -2,7 +2,9 @@
 
 declare -a PACKAGES=(
   "btop"
+  "clang"
   "clang-tools-extra"
+  "cmatrix"
   "dconf-editor"
   "dwarves"
   "exercism"
@@ -10,7 +12,6 @@ declare -a PACKAGES=(
   "firewall-config"
   "git-delta"
   "git-extras"
-  "gnome-tweaks"
   "htop"
   "httpie"
   "hwinfo"
@@ -29,7 +30,6 @@ declare -a PACKAGES=(
   "minicom"
   "ov"
   "pipx"
-  "python3-gobject"
   "python3-virtualenv"
   "qalculate-gtk"
   "qemu"
