@@ -28,7 +28,6 @@ packages=(
   "kitty"
   "lazydocker"
   "lazygit"
-  "mise"
   "nvim"
   "ov"
   "starship"
