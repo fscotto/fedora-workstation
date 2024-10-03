@@ -25,6 +25,7 @@ declare -a PACKAGES=(
   "miller"
   "minicom"
   "ov"
+  "perl-Image-ExifTool"
   "pipx"
   "python3-virtualenv"
   "qemu"

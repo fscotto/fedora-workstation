@@ -11,6 +11,6 @@ echo -e "Install Homebrew packages"
 test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)"
 test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
-brew install lazydocker exiftool glow viu moar yazi
+brew install glow moar viu yazi
 
 echo -e "Homebrew packages installed"

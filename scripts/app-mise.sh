@@ -25,6 +25,8 @@ if [ "$status" -ne 0 ]; then
   mise use -g -y glab
   mise use -g -y gh
   mise use -g -y lazygit
+  mise plugins install lazydocker https://github.com/comdotlinux/asdf-lazydocker.git
+  mise use -g -y lazydocker
 
   mise install -y java@temurin-17
 else
