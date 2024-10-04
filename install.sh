@@ -3,11 +3,16 @@
 # Exit immediately if a command exits with a non-zero status
 set -e
 
+source functions.sh
+
 # Export current path of installer script
 SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &>/dev/null && pwd)
 export SCRIPT_DIR
 
-source functions.sh
+FEDORA_VER=$(fedora_version)
+export FEDORA_VER
+
+echo -e "Installing software compilation on Fedora $FEDORA_VER\n"
 
 # Create folder for external binaries
 mkdir -p ~/.local/bin/
