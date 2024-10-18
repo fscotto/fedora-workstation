@@ -27,8 +27,14 @@ if [ "$status" -ne 0 ]; then
   mise use -g -y lazygit
   mise plugins install lazydocker https://github.com/comdotlinux/asdf-lazydocker.git
   mise use -g -y lazydocker
+  mise use -g -y go:github.com/walles/moar
+  mise use -g -y go:github.com/charmbracelet/glow
+  mise use -g -y cargo:yazi-cli
+  mise use -g -y cargo:yazi-fm
 
   mise install -y java@temurin-17
+
+  ln -s ~/.local/share/mise ~/.asdf
 else
   echo -e "Mise is already installed\n"
 fi
