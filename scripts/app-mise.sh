@@ -31,8 +31,10 @@ if [ "$status" -ne 0 ]; then
   mise use -g -y go:github.com/charmbracelet/glow
   mise use -g -y cargo:yazi-cli
   mise use -g -y cargo:yazi-fm
+  mise use -g -y python
 
   mise install -y java@temurin-17
+  mise install -y python@3.8
 
   ln -s ~/.local/share/mise ~/.asdf
 else

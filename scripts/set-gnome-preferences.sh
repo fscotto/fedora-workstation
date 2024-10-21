@@ -17,7 +17,7 @@ gsettings set org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folder
 gsettings set org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/02123af2-796e-4d92-90cb-58ec32548cde/ name 'Administration Tools'
 
 # Set folder "Office" (aka ebe9c514-6000-498c-b613-cdc4b223d5e2)
-gsettings set org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/ebe9c514-6000-498c-b613-cdc4b223d5e2/ apps "['io.github.troyeguo.koodo-reader.desktop', 'org.onlyoffice.desktopeditors.desktop', 'libreoffice-writer.desktop', 'libreoffice-calc.desktop', 'libreoffice-impress.desktop', 'com.github.xournalpp.xournalpp.desktop']"
+gsettings set org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/ebe9c514-6000-498c-b613-cdc4b223d5e2/ apps "['io.github.troyeguo.koodo-reader.desktop', 'net.codeindustry.MasterPDFEditor.desktop', 'org.onlyoffice.desktopeditors.desktop', 'libreoffice-writer.desktop', 'libreoffice-calc.desktop', 'libreoffice-impress.desktop', 'com.github.xournalpp.xournalpp.desktop']"
 gsettings set org.gnome.desktop.app-folders.folder:/org/gnome/desktop/app-folders/folders/ebe9c514-6000-498c-b613-cdc4b223d5e2/ name 'Office'
 
 # Set folder Utilities
@@ -39,7 +39,7 @@ gsettings set org.gnome.desktop.interface font-antialiasing 'rgba'
 gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita'
 gsettings set org.gnome.desktop.interface icon-theme 'Papirus'
 gsettings set org.gnome.desktop.interface monospace-font-name 'FiraCode Nerd Font Mono 12'
-gsettings set org.gnome.desktop.notifications application-children "['org-gnome-terminal', 'gnome-power-panel', 'org-telegram-desktop', 'org-gnome-nautilus', 'org-mozilla-firefox', 'jetbrains-toolbox', 'jetbrains-idea-71be2013-d721-4b24-a8a5-627fff40cb97', 'org-gnome-software', 'org-mozilla-thunderbird', 'org-gnome-boxes', 'gnome-printers-panel', 'org-gnome-evolution-alarm-notify', 'io-github-prateekmedia-appimagepool', 'com-spotify-client', 'com-vscodium-codium', 'com-mattjakeman-extensionmanager', 'org-gnome-calendar', 'io-dbeaver-dbeavercommunity', 'org-gnome-texteditor', 'org-gnome-settings', 'me-iepure-devtoolbox', 'com-github-krtirtho-spotube', 'com-jetbrains-intellij-idea-ultimate', 'org-gnome-meld', 'ca-desrt-dconf-editor', 'org-freedesktop-problems-applet', 'fish', 'intellij-idea-ultimate', 'org-gnome-evince', 'org-gnome-shell-portalhelper', 'com-github-xournalpp-xournalpp']"
+gsettings set org.gnome.desktop.notifications application-children "['org-gnome-terminal', 'gnome-power-panel', 'org-telegram-desktop', 'org-gnome-nautilus', 'org-mozilla-firefox', 'jetbrains-toolbox', 'jetbrains-idea-71be2013-d721-4b24-a8a5-627fff40cb97', 'org-gnome-software', 'org-mozilla-thunderbird', 'org-gnome-boxes', 'gnome-printers-panel', 'org-gnome-evolution-alarm-notify', 'io-github-prateekmedia-appimagepool', 'com-spotify-client', 'com-vscodium-codium', 'com-mattjakeman-extensionmanager', 'org-gnome-calendar', 'io-dbeaver-dbeavercommunity', 'org-gnome-texteditor', 'org-gnome-settings', 'me-iepure-devtoolbox', 'com-github-krtirtho-spotube', 'com-jetbrains-intellij-idea-ultimate', 'org-gnome-meld', 'ca-desrt-dconf-editor', 'org-freedesktop-problems-applet', 'fish', 'intellij-idea-ultimate', 'org-gnome-evince', 'org-gnome-shell-portalhelper', 'com-github-xournalpp-xournalpp', 'fr-handbrake-ghb', 'io-github-troyeguo-koodo-reader', 'pycharm-community', 'com-usebruno-bruno']"
 gsettings set org.gnome.desktop.privacy old-files-age 7
 gsettings set org.gnome.desktop.privacy recent-files-max-age 30
 gsettings set org.gnome.desktop.privacy remove-old-temp-files true
@@ -56,10 +56,10 @@ gsettings set org.gnome.desktop.wm.preferences button-layout 'appmenu:minimize,m
 # GNOME Shell conf
 gsettings set org.gnome.shell.weather automatic-location true
 gsettings set org.gnome.shell.weather locations "[<(uint32 2, <('Rome', 'LIRU', true, [(0.73216562121162132, 0.21816615649929119)], [(0.73129295658562399, 0.21787526247286132)])>)>]"
-gsettings set org.gnome.shell app-picker-layout "[{'02123af2-796e-4d92-90cb-58ec32548cde': <{'position': <0>}>, 'Utilities': <{'position': <1>}>, 'ebe9c514-6000-498c-b613-cdc4b223d5e2': <{'position': <2>}>, 'org.filezillaproject.Filezilla.desktop': <{'position': <3>}>, 'uk.org.greenend.chiark.sgtatham.putty.desktop': <{'position': <4>}>, 'org.freefilesync.FreeFileSync.desktop': <{'position': <5>}>, 'org.freefilesync.FreeFileSync.RealTimeSync.desktop': <{'position': <6>}>, 'org.gnome.Boxes.desktop': <{'position': <7>}>, 'org.gnome.Contacts.desktop': <{'position': <8>}>, 'org.gnome.Weather.desktop': <{'position': <9>}>, 'org.gnome.clocks.desktop': <{'position': <10>}>, 'org.gnome.Maps.desktop': <{'position': <11>}>, 'org.gnome.Calendar.desktop': <{'position': <12>}>, 'org.gnome.Snapshot.desktop': <{'position': <13>}>, 'org.gnome.Calculator.desktop': <{'position': <14>}>, 'io.github.Qalculate.desktop': <{'position': <15>}>, 'org.gnome.TextEditor.desktop': <{'position': <16>}>, 'org.videolan.VLC.desktop': <{'position': <17>}>, 'io.dbeaver.DBeaverCommunity.desktop': <{'position': <18>}>, 'com.usebruno.Bruno.desktop': <{'position': <19>}>}]"
-gsettings set org.gnome.shell favorite-apps "['org.gnome.Nautilus.desktop', 'org.mozilla.firefox.desktop', 'org.mozilla.Thunderbird.desktop', 'org.telegram.desktop.desktop', 'com.spotify.Client.desktop', 'code.desktop', 'intellij-idea-ultimate.desktop', 'postman.desktop', 'org.gnome.Meld.desktop', 'me.iepure.devtoolbox.desktop', 'kitty.desktop']"
+gsettings set org.gnome.shell app-picker-layout "[{'02123af2-796e-4d92-90cb-58ec32548cde': <{'position': <0>}>, 'Utilities': <{'position': <1>}>, 'ebe9c514-6000-498c-b613-cdc4b223d5e2': <{'position': <2>}>, 'com.google.Chrome.desktop': <{'position': <3>}>, 'org.filezillaproject.Filezilla.desktop': <{'position': <4>}>, 'uk.org.greenend.chiark.sgtatham.putty.desktop': <{'position': <5>}>, 'org.freefilesync.FreeFileSync.desktop': <{'position': <6>}>, 'org.freefilesync.FreeFileSync.RealTimeSync.desktop': <{'position': <7>}>, 'virtualbox.desktop': <{'position': <8>}>, 'org.gnome.Boxes.desktop': <{'position': <9>}>, 'org.gnome.Contacts.desktop': <{'position': <10>}>, 'org.gnome.Weather.desktop': <{'position': <11>}>, 'org.gnome.clocks.desktop': <{'position': <12>}>, 'org.gnome.Maps.desktop': <{'position': <13>}>, 'org.gnome.Calendar.desktop': <{'position': <14>}>, 'org.gnome.Snapshot.desktop': <{'position': <15>}>, 'org.gnome.Calculator.desktop': <{'position': <16>}>, 'org.gnome.TextEditor.desktop': <{'position': <17>}>, 'io.github.Qalculate.desktop': <{'position': <18>}>, 'fr.handbrake.ghb.desktop': <{'position': <19>}>, 'org.videolan.VLC.desktop': <{'position': <20>}>, 'pycharm-community.desktop': <{'position': <21>}>, 'io.dbeaver.DBeaverCommunity.desktop': <{'position': <22>}>, 'com.usebruno.Bruno.desktop': <{'position': <23>}>}]"
+gsettings set org.gnome.shell favorite-apps "['org.gnome.Nautilus.desktop', 'org.mozilla.firefox.desktop', 'org.mozilla.Thunderbird.desktop', 'org.telegram.desktop.desktop', 'com.spotify.Client.desktop', 'code.desktop', 'intellij-idea-ultimate.desktop', 'postman.desktop', 'me.iepure.devtoolbox.desktop', 'kitty.desktop']"
 gsettings set org.gnome.shell last-selected-power-profile 'performance'
-gsettings set org.gnome.shell welcome-dialog-last-shown-version '46.0'
+#gsettings set org.gnome.shell welcome-dialog-last-shown-version '46.0'
 
 # Mutter conf
 gsettings set org.gnome.mutter attach-modal-dialogs true
@@ -85,27 +85,6 @@ cp "$SCRIPT_DIR"/data/background.jpg "$HOME"/.config/background
 gsettings set org.gnome.desktop.background picture-uri 'file:///home/fscotto/.config/background'
 gsettings set org.gnome.desktop.background picture-uri-dark 'file:///home/fscotto/.config/background'
 gsettings set org.gnome.desktop.background picture-options 'zoom'
-
-# GNOME Terminal conf
-#gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/ background-color 'rgb(23,20,33)'
-#gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/ background-transparency-percent 3
-#gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/ bold-color '#6E46A4'
-#gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/ bold-color-same-as-fg false
-#gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/ bold-is-bright true
-#gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/ custom-command 'tmux'
-#gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/ default-size-columns 145
-#gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/ default-size-rows 40
-#gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/ foreground-color 'rgb(208,207,204)'
-#gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/ login-shell true
-#gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/ palette "['rgb(23,20,33)', 'rgb(192,28,40)', 'rgb(38,162,105)', 'rgb(162,115,76)', 'rgb(18,72,139)', 'rgb(163,71,186)', 'rgb(42,161,179)', 'rgb(208,207,204)', 'rgb(94,92,100)', 'rgb(246,97,81)', 'rgb(51,209,122)', 'rgb(233,173,12)', 'rgb(42,123,222)', 'rgb(192,97,203)', 'rgb(51,199,222)', 'rgb(255,255,255)']"
-#gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/ scrollbar-policy 'never'
-#gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/ scroll-on-output true
-#gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/ use-custom-command true
-#gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/ use-theme-colors true
-#gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/ use-transparent-background true
-#gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9/ visible-name 'GNOME'
-#gsettings set org.gnome.Terminal.ProfilesList default 'b1dcc9dd-5262-4d8d-a863-c897e6d979b9'
-#gsettings set org.gnome.Terminal.ProfilesList list "['b1dcc9dd-5262-4d8d-a863-c897e6d979b9']"
 
 # Install file templates
 mkdir -p "$HOME"/Templates

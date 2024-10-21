@@ -14,25 +14,47 @@ fi
 
 echo -e "Install Visual Studio Code Extensions\n"
 
-code --install-extension redhat.ansible 2>/dev/null
-code --install-extension formulahendry.auto-close-tag 2>/dev/null
-code --install-extension ms-vscode.cpptools 2>/dev/null
-code --install-extension franneck94.vscode-rust-extension-pack 2>/dev/null
-code --install-extension mikestead.dotenv 2>/dev/null
-code --install-extension jakebecker.elixir-ls 2>/dev/null
-code --install-extension golang.go 2>/dev/null
-code --install-extension rusnasonov.vscode-hugo 2>/dev/null
-code --install-extension budparr.language-hugo-vscode 2>/dev/null
-code --install-extension DavidAnson.vscode-markdownlint 2>/dev/null
-code --install-extension christian-kohler.path-intellisense 2>/dev/null
-code --install-extension esbenp.prettier-vscode 2>/dev/null
-code --install-extension ms-python.python 2>/dev/null
-code --install-extension ms-python.debugpy 2>/dev/null
-code --install-extension timonwong.shellcheck 2>/dev/null
-code --install-extension redhat.vscode-xml 2>/dev/null
-code --install-extension redhat.vscode-yaml 2>/dev/null
-code --install-extension catppuccin.catppuccin-vsc-pack 2>/dev/null
-code --install-extension ms-vscode.makefile-tools 2>/dev/null
+extensions=(
+  "budparr.language-hugo-vscode"
+  "catppuccin.catppuccin-vsc"
+  "catppuccin.catppuccin-vsc-icons"
+  "catppuccin.catppuccin-vsc-pack"
+  "christian-kohler.path-intellisense"
+  "davidanson.vscode-markdownlint"
+  "esbenp.prettier-vscode"
+  "fill-labs.dependi"
+  "formulahendry.auto-close-tag"
+  "franneck94.vscode-rust-config"
+  "franneck94.vscode-rust-extension-pack"
+  "golang.go"
+  "jakebecker.elixir-ls"
+  "mikestead.dotenv"
+  "ms-azuretools.vscode-docker"
+  "ms-python.debugpy"
+  "ms-python.python"
+  "ms-python.vscode-pylance"
+  "ms-vscode-remote.remote-containers"
+  "ms-vscode.cmake-tools"
+  "ms-vscode.cpptools"
+  "ms-vscode.cpptools-extension-pack"
+  "ms-vscode.cpptools-themes"
+  "ms-vscode.makefile-tools"
+  "redhat.ansible"
+  "redhat.vscode-tekton-pipelines"
+  "redhat.vscode-xml"
+  "redhat.vscode-yaml"
+  "rusnasonov.vscode-hugo"
+  "rust-lang.rust-analyzer"
+  "tamasfe.even-better-toml"
+  "timonwong.shellcheck"
+  "twxs.cmake"
+  "vscodevim.vim"
+  "xaver.clang-format"
+)
+
+for ext in "${extensions[@]}"; do
+  code --install-extension "$ext" 2>/dev/null
+done
 
 cat <<EOF >~/.config/Code/User/settings.json
 {

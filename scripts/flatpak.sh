@@ -38,6 +38,8 @@ declare -A FLATPAKS=(
   ["org.gnome.seahorse.Application"]="flathub"
   ["org.telegram.desktop"]="flathub"
   ["io.github.pwr_solaar.solaar"]="flathub"
+  ["org.gnome.Boxes"]="flathub"
+  ["net.codeindustry.MasterPDFEditor"]="flathub"
 )
 
 echo -e "Install Flatpak packages\n"
