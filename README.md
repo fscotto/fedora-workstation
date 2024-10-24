@@ -37,7 +37,7 @@ Some screenshots.
 
 ---
 
-![image](https://github.com/user-attachments/assets/0c9d83bf-fc39-4fdf-b507-a8600f2f15e2)
+![image](https://github.com/user-attachments/assets/086bdce0-d134-4206-9449-a566c187e9f2)
 
 ---
 
