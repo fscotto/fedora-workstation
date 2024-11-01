@@ -39,6 +39,7 @@ gsettings set org.gnome.desktop.interface font-antialiasing 'rgba'
 gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita'
 gsettings set org.gnome.desktop.interface icon-theme 'Papirus'
 gsettings set org.gnome.desktop.interface monospace-font-name 'FiraCode Nerd Font Mono 12'
+gsettings set org.gnome.desktop.interface accent-color 'pink'
 gsettings set org.gnome.desktop.notifications application-children "['org-gnome-terminal', 'gnome-power-panel', 'org-telegram-desktop', 'org-gnome-nautilus', 'org-mozilla-firefox', 'jetbrains-toolbox', 'jetbrains-idea-71be2013-d721-4b24-a8a5-627fff40cb97', 'org-gnome-software', 'org-mozilla-thunderbird', 'org-gnome-boxes', 'gnome-printers-panel', 'org-gnome-evolution-alarm-notify', 'io-github-prateekmedia-appimagepool', 'com-spotify-client', 'com-vscodium-codium', 'com-mattjakeman-extensionmanager', 'org-gnome-calendar', 'io-dbeaver-dbeavercommunity', 'org-gnome-texteditor', 'org-gnome-settings', 'me-iepure-devtoolbox', 'com-github-krtirtho-spotube', 'com-jetbrains-intellij-idea-ultimate', 'org-gnome-meld', 'ca-desrt-dconf-editor', 'org-freedesktop-problems-applet', 'fish', 'intellij-idea-ultimate', 'org-gnome-evince', 'org-gnome-shell-portalhelper', 'com-github-xournalpp-xournalpp', 'fr-handbrake-ghb', 'io-github-troyeguo-koodo-reader', 'pycharm-community', 'com-usebruno-bruno']"
 gsettings set org.gnome.desktop.privacy old-files-age 7
 gsettings set org.gnome.desktop.privacy recent-files-max-age 30

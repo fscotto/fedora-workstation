@@ -27,12 +27,8 @@ extensions=(
   "franneck94.vscode-rust-config"
   "franneck94.vscode-rust-extension-pack"
   "golang.go"
-  "jakebecker.elixir-ls"
   "mikestead.dotenv"
   "ms-azuretools.vscode-docker"
-  "ms-python.debugpy"
-  "ms-python.python"
-  "ms-python.vscode-pylance"
   "ms-vscode-remote.remote-containers"
   "ms-vscode.cmake-tools"
   "ms-vscode.cpptools"
@@ -48,7 +44,6 @@ extensions=(
   "tamasfe.even-better-toml"
   "timonwong.shellcheck"
   "twxs.cmake"
-  "vscodevim.vim"
   "xaver.clang-format"
 )
 
