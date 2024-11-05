@@ -43,3 +43,6 @@ for pkg in "${packages[@]}"; do
 
   stow --dotfiles --dir "$DOTFILES_LOC" -R "$pkg"
 done
+
+echo -e "Clone Git prompt for Bash Shell\n"
+git clone https://github.com/magicmonty/bash-git-prompt.git ~/.bash-git-prompt --depth=1
