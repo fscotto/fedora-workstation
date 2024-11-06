@@ -45,6 +45,7 @@ extensions=(
   "timonwong.shellcheck"
   "twxs.cmake"
   "xaver.clang-format"
+  "pinage404.bash-extension-pack"
 )
 
 for ext in "${extensions[@]}"; do
