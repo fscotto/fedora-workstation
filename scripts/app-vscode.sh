@@ -60,7 +60,7 @@ cat <<EOF >~/.config/Code/User/settings.json
     "window.titleBarStyle": "custom",
 
     "editor.fontFamily": "'FiraCode Nerd Font'",
-    "editor.fontSize": 16,
+    "editor.fontSize": 20,
     
     // Terminal configurations
     "terminal.external.linuxExec": "kitty",
@@ -68,10 +68,16 @@ cat <<EOF >~/.config/Code/User/settings.json
     "terminal.integrated.defaultProfile.linux": "fish",
     "terminal.integrated.cursorBlinking": true,
     "terminal.integrated.fontFamily": "'FiraCode Nerd Font'",
-    "terminal.integrated.fontSize": 16,
+    "terminal.integrated.fontSize": 20,
 
     "redhat.telemetry.enabled": false,
-    "elixirLS.enableTestLenses": true,
-    "elixirLS.fetchDeps": true,
+    "[c]": {
+        "editor.defaultFormatter": "xaver.clang-format"
+    },
+    "git.autofetch": true,
+    "[javascript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "files.autoSave": "afterDelay",
 }
 EOF
