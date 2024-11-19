@@ -42,6 +42,7 @@ extensions=(
   "twxs.cmake"
   "xaver.clang-format"
   "pinage404.bash-extension-pack"
+  "haskell.haskell"
 )
 
 for ext in "${extensions[@]}"; do
