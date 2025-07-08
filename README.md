@@ -1,4 +1,4 @@
-# Fedora Workstation 40 Post-Installation Setup
+# Fedora Workstation 40+ Post-Installation Setup
 
 > ⚠️ **Disclaimer:** This project is currently in beta and under active development.
 
@@ -6,7 +6,7 @@
 
 ## Overview
 
-This repository contains a collection of scripts designed to automate the post-installation setup and configuration of Fedora Workstation 40.  
+This repository contains a collection of scripts designed to automate the post-installation setup and configuration of Fedora Workstation 40+.  
 The goal is to streamline the installation of essential software, system configuration, GNOME customization, and developer environment setup, providing a ready-to-use and polished desktop experience.
 
 ---
