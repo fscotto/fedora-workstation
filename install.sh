@@ -1,41 +1,63 @@
 #!/usr/bin/env bash
 
-# Exit immediately if a command exits with a non-zero status
-set -e
+set -euo pipefail
+IFS=$'\n\t'
 
-source functions.sh
+# -------------------------------------------------------
+# Fedora Workstation Installer Script
+#
+# This script prepares a Fedora environment for
+# development and software compilation.
+# It performs system upgrades, installs essential tools,
+# and runs modular installer scripts.
+# -------------------------------------------------------
 
-# Export current path of installer script
+# Resolve and export the path to this script
 SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &>/dev/null && pwd)
 export SCRIPT_DIR
 
+# Source required libraries
+source "$SCRIPT_DIR/lib/logging.sh"
+source "$SCRIPT_DIR/lib/functions.sh"
+
+# Detect Fedora version
 FEDORA_VER=$(fedora_version)
 export FEDORA_VER
 
-echo -e "Installing software compilation on Fedora $FEDORA_VER\n"
+log_info "Starting software setup for Fedora $FEDORA_VER"
 
-# Create folder for external binaries
+# Create directory for user-installed binaries
 mkdir -p ~/.local/bin/
+log_debug "Ensured existence of ~/.local/bin"
 
-# Needed for all installers
-echo -e "Upgrade Fedora installation\n"
+# Update system and install required base packages
+log_info "Upgrading Fedora system packages..."
 sudo dnf upgrade --assumeyes --best --allowerasing
+
+log_info "Installing essential developer tools: curl, git, unzip, dnf-utils, pipx"
 sudo dnf install --assumeyes curl git unzip dnf-utils pipx
 
-# Ensure computer doesn't go to sleep or lock while installing
+# Temporarily disable screen locking and idle timeout
+log_info "Disabling screen lock and idle timeout during installation"
 gsettings set org.gnome.desktop.screensaver lock-enabled false
 gsettings set org.gnome.desktop.session idle-delay 0
 
-# Run installers
+# Run all modular installer scripts from the 'scripts' directory
+log_info "Running installer scripts from: $SCRIPT_DIR/scripts"
 for script in "$SCRIPT_DIR"/scripts/*.sh; do
-  source "$script"
+    log_debug "Executing: $script"
+    source "$script"
 done
 
-# Revert to normal idle and lock settings
+# Re-enable screen locking and idle timeout
+log_info "Restoring screen lock and idle timeout settings"
 gsettings set org.gnome.desktop.screensaver lock-enabled true
 gsettings set org.gnome.desktop.session idle-delay 300
 
+# Cleanup: remove script directory
+log_info "Cleaning up installation directory"
 cd "$HOME"
 rm -rf "$SCRIPT_DIR"
 
-echo -e "Installation finish with successful, reboot your computer"
+log_info "Installation completed successfully. Please reboot your system."
+

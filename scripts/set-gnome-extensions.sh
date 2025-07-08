@@ -1,12 +1,25 @@
 #!/usr/bin/env bash
+set -euo pipefail
+IFS=$'\n\t'
 
-USER_EXT=~/.local/share/gnome-shell/extensions
-SYSTEM_EXT=/usr/share/glib-2.0/schemas/
+# -------------------------------------------------------
+# GNOME Extensions Installer and Configurator
+#
+# Installs GNOME Extensions using gnome-extensions-cli (gext)
+# Copies extension schemas to system directory and compiles schemas.
+# Configures specific GNOME extension settings via gsettings.
+# -------------------------------------------------------
 
-echo -e "\n\nInstall GNOME Extension CLI tool\n"
+source "$(dirname "${BASH_SOURCE[0]}")/../lib/logging.sh"
+source "$(dirname "${BASH_SOURCE[0]}")/../lib/functions.sh"
+
+USER_EXT="$HOME/.local/share/gnome-shell/extensions"
+SYSTEM_EXT="/usr/share/glib-2.0/schemas"
+
+log_info "Installing GNOME Extension CLI tool..."
 pipx install gnome-extensions-cli --system-site-packages
 
-echo -e "Install GNOME Extensions\n"
+log_info "Installing GNOME Extensions..."
 extensions=(
   "clipboard-history@alexsaveau.dev"
   "drive-menu@gnome-shell-extensions.gcampax.github.com"
@@ -20,21 +33,38 @@ extensions=(
   "blur-my-shell@aunetx"
   "Vitals@CoreCoding.com"
 )
+
 for ext in "${extensions[@]}"; do
+  log_info "Installing extension: $ext"
   gext install "$ext"
 done
 
-sudo cp "${USER_EXT}"/bluetooth-quick-connect@bjarosze.gmail.com/schemas/org.gnome.shell.extensions.bluetooth-quick-connect.gschema.xml "${SYSTEM_EXT}"
-sudo cp "${USER_EXT}"/caffeine@patapon.info/schemas/org.gnome.shell.extensions.caffeine.gschema.xml "${SYSTEM_EXT}"
-sudo cp "${USER_EXT}"/clipboard-history@alexsaveau.dev/schemas/org.gnome.shell.extensions.clipboard-indicator.gschema.xml "${SYSTEM_EXT}"
-sudo cp "${USER_EXT}"/gnome-ui-tune@itstime.tech/schemas/org.gnome.shell.extensions.gnome-ui-tune.gschema.xml "${SYSTEM_EXT}"
-sudo cp "${USER_EXT}"/user-theme@gnome-shell-extensions.gcampax.github.com/schemas/org.gnome.shell.extensions.user-theme.gschema.xml "${SYSTEM_EXT}"
-sudo cp "${USER_EXT}"/status-area-horizontal-spacing@mathematical.coffee.gmail.com/schemas/org.gnome.shell.extensions.status-area-horizontal-spacing.gschema.xml "${SYSTEM_EXT}"
-sudo cp "${USER_EXT}"/blur-my-shell@aunetx/schemas/org.gnome.shell.extensions.blur-my-shell.gschema.xml "${SYSTEM_EXT}"
-sudo cp "${USER_EXT}"/Vitals@CoreCoding.com/schemas/org.gnome.shell.extensions.vitals.gschema.xml "${SYSTEM_EXT}"
-sudo glib-compile-schemas "${SYSTEM_EXT}"
+log_info "Copying extension schemas to system directory..."
+declare -a schemas=(
+  "bluetooth-quick-connect@bjarosze.gmail.com"
+  "caffeine@patapon.info"
+  "clipboard-history@alexsaveau.dev"
+  "gnome-ui-tune@itstime.tech"
+  "user-theme@gnome-shell-extensions.gcampax.github.com"
+  "status-area-horizontal-spacing@mathematical.coffee.gmail.com"
+  "blur-my-shell@aunetx"
+  "Vitals@CoreCoding.com"
+)
 
-echo -e "Configure GNOME Extensions\n"
+for schema in "${schemas[@]}"; do
+  src="${USER_EXT}/${schema}/schemas/org.gnome.shell.extensions.${schema}.gschema.xml"
+  if [[ -f "$src" ]]; then
+    log_info "Copying schema $src to $SYSTEM_EXT"
+    sudo cp "$src" "$SYSTEM_EXT"
+  else
+    log_warn "Schema file for $schema not found at $src"
+  fi
+done
+
+log_info "Compiling GSettings schemas..."
+sudo glib-compile-schemas "$SYSTEM_EXT"
+
+log_info "Configuring GNOME Extensions settings..."
 
 # Background Logo
 gsettings set org.fedorahosted.background-logo-extension logo-always-visible true
@@ -51,7 +81,10 @@ gsettings set org.gnome.shell.extensions.status-area-horizontal-spacing hpadding
 # Blur My Shell
 gsettings set org.gnome.shell.extensions.blur-my-shell.overview blur false
 gsettings set org.gnome.shell.extensions.blur-my-shell.applications blur false
-gsettings set org.gnome.shell.extensions.blur-my-shell pipelines "{'pipeline_default': {'name': <'Default'>, 'effects': <[<{'type': <'native_static_gaussian_blur'>, 'id': <'effect_67814402149198'>, 'params': <{'unscaled_radius': <0>}>}>]>}, 'pipeline_default_rounded': {'name': <'Default rounded'>, 'effects': <[<{'type': <'native_static_gaussian_blur'>, 'id': <'effect_000000000001'>, 'params': <{'radius': <30>, 'brightness': <0.59999999999999998>}>}>, <{'type': <'corner'>, 'id': <'effect_000000000002'>, 'params': <{'radius': <24>}>}>]>}}"
+gsettings set org.gnome.shell.extensions.blur-my-shell pipelines "{'pipeline_default': {'name': <'Default'>, 'effects': <[<{'type': <'native_static_gaussian_blur'>, 'id': <'effect_67814402149198'>, 'params': <{'unscaled_radius': <0>}>}>]>}, 'pipeline_default_rounded': {'name': <'Default rounded'>, 'effects': <[<{'type': <'native_static_gaussian_blur'>, 'id': <'effect_000000000001'>, 'params': <{'radius': <30>, 'brightness': <0.6>}>}>, <{'type': <'corner'>, 'id': <'effect_000000000002'>, 'params': <{'radius': <24>}>}>]>}}"
 
 # Vitals
 gsettings set org.gnome.shell.extensions.vitals hot-sensors "['__temperature_avg__', '_memory_allocated_', '_system_uptime_']"
+
+log_info "GNOME Extensions installation and configuration completed."
+

@@ -1,26 +1,33 @@
 #!/usr/bin/env bash
+set -euo pipefail
+IFS=$'\n\t'
 
-echo -e "Setting GNOME hotkeys\n"
+# -------------------------------------------------------
+# GNOME Hotkeys Configuration Script
+#
+# Sets custom GNOME hotkeys for workspace navigation,
+# launcher shortcuts, and terminal launcher.
+# -------------------------------------------------------
 
-# Navigation hotkeys
+source "$(dirname "${BASH_SOURCE[0]}")/../lib/logging.sh"
+source "$(dirname "${BASH_SOURCE[0]}")/../lib/functions.sh"
+
+log_info "Setting GNOME hotkeys..."
+
+# Navigation hotkeys: show desktop
 gsettings set org.gnome.desktop.wm.keybindings show-desktop "['<Super>d']"
 
-gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-1 "['<Super><Shift>1']"
-gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-2 "['<Super><Shift>2']"
-gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-3 "['<Super><Shift>3']"
-gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-4 "['<Super><Shift>4']"
-gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-4 "['<Super><Shift>4']"
-gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-5 "['<Super><Shift>5']"
-gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-6 "['<Super><Shift>6']"
-gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-7 "['<Super><Shift>7']"
-gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-8 "['<Super><Shift>8']"
-gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-9 "['<Super><Shift>9']"
+# Move windows to workspace 1-10 with Super+Shift+number
+for i in {1..9}; do
+  gsettings set org.gnome.desktop.wm.keybindings "move-to-workspace-$i" "['<Super><Shift>$i']"
+done
+# Workspace 10 is number 0 key
 gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-10 "['<Super><Shift>0']"
 
-gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-1 "['<Alt><Super>1']"
-gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-2 "['<Alt><Super>2']"
-gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-3 "['<Alt><Super>3']"
-gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-4 "['<Alt><Super>4']"
+# Switch to workspace 1-4 with Alt+Super+number
+for i in {1..4}; do
+  gsettings set org.gnome.desktop.wm.keybindings "switch-to-workspace-$i" "['<Alt><Super>$i']"
+done
 
 # Launcher hotkeys
 gsettings set org.gnome.settings-daemon.plugins.media-keys control-center "['<Shift><Alt>s']"
@@ -28,8 +35,11 @@ gsettings set org.gnome.settings-daemon.plugins.media-keys email "['<Super>e']"
 gsettings set org.gnome.settings-daemon.plugins.media-keys home "['<Super>f']"
 gsettings set org.gnome.settings-daemon.plugins.media-keys www "['<Super>b']"
 
-# Set Kitty to Super+Return
+# Set custom shortcut to launch Kitty terminal with Super+Return
 gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']"
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ name 'Launch terminal'
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ command 'kitty'
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ binding '<Super>Return'
+
+log_info "GNOME hotkeys configuration complete."
+

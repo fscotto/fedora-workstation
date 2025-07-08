@@ -1,13 +1,27 @@
 #!/usr/bin/env bash
+set -euo pipefail
+IFS=$'\n\t'
 
-echo -e "\n\nAdd Flathub repository\n"
+# -------------------------------------------------------
+# Flatpak Setup Script
+#
+# Adds Flathub repository,
+# removes RPM Firefox if installed,
+# installs a curated list of Flatpak apps from various remotes,
+# and applies user-specific Flatpak overrides.
+# -------------------------------------------------------
+
+# Load shared libraries
+source "$(dirname "${BASH_SOURCE[0]}")/../lib/logging.sh"
+source "$(dirname "${BASH_SOURCE[0]}")/../lib/functions.sh"
+
+log_info "Adding Flathub repository if not already present..."
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 flatpak remote-modify --enable flathub
 
-status=$(package_status "firefox")
-if [ "$status" -eq 0 ]; then
-  echo -e "Remove RPM Firefox version\n"
-  sudo dnf remove --assumeyes firefox-langpacks firefox
+if package_status "firefox"; then
+    log_info "Removing RPM Firefox and language packs to avoid conflicts with Flatpak version..."
+    sudo dnf remove --assumeyes firefox-langpacks firefox
 fi
 
 declare -A FLATPAKS=(
@@ -42,14 +56,15 @@ declare -A FLATPAKS=(
   ["net.codeindustry.MasterPDFEditor"]="flathub"
 )
 
-echo -e "Install Flatpak packages\n"
+log_info "Installing Flatpak packages..."
 for pkg in "${!FLATPAKS[@]}"; do
-  remote="${FLATPAKS[${pkg}]}"
+  remote="${FLATPAKS[$pkg]}"
+  log_debug "Installing $pkg from remote $remote"
   flatpak install --assumeyes "$remote" "$pkg"
 done
-echo -e "Flatpaks installed\n"
+log_info "Flatpak packages installed successfully."
 
-echo -e "Override Flatpak user configurations\n"
+log_info "Applying Flatpak user overrides..."
 flatpak override --user --env=ICON_THEME=Papirus
 flatpak override --user --filesystem=xdg-config/Kvantum:ro
 flatpak override --user --filesystem=~/.themes
@@ -60,7 +75,7 @@ flatpak override --user --filesystem=~/.local/share/icons
 flatpak override --user --filesystem=~/.icons
 flatpak override --user --filesystem=xdg-config/gtk-4.0
 
-# Specific for app
+# Theme and environment overrides specific for some apps
 flatpak override --user --env=GTK_THEME=adw-gtk3-dark nl.hjdskes.gcolor3
 flatpak override --user --env=GTK_THEME=adw-gtk3-dark io.dbeaver.DBeaverCommunity
 flatpak override --user --env=GTK_THEME=adw-gtk3-dark org.mozilla.firefox
@@ -71,3 +86,6 @@ flatpak override --user --env=GTK_THEME=adw-gtk3-dark com.github.xournalpp.xourn
 flatpak override --user --env=GTK_THEME=Adwaita-dark org.fedoraproject.FirewallConfig
 flatpak override --user --env=GTK_THEME=Adwaita-dark io.github.Qalculate
 flatpak override --user --env=GTK_THEME=adw-gtk3-dark io.github.pwr_solaar.solaar
+
+log_info "Flatpak configuration completed."
+
